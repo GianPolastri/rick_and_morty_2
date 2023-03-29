@@ -1,27 +1,20 @@
-const http = require("http");
-const characters = require("./utils/data");
+const { json } = require("express");
+const express = require("express");
+const PORT = 3001;
+const mainRouter = require('../src/routes/index');
+const morgan = require('morgan');
+const cors = require('cors')
 
-http
-  .createServer(function (req, res) {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+const server = express();
 
-    const { url } = req;
+server.use(express.json());
+server.use(morgan('dev')) 
+server.use(cors())
 
-    if (url.includes("rickandmorty/characters/")) {
-      const id = url.split("/").at(-1);
-      const character = characters.find((char) => char.id == id);
+server.use("/rickandmorty", mainRouter);
 
-      if (character) {
-        res.writeHead(200, { "Content-Type": "application/json" });
-        return res.end(JSON.stringify(character));
-      } else {
-        res.writeHead(404, { "Content-Type": "applicataion/json" });
-        return  res.end(
-          JSON.stringify({ error: "No se a podido encontrar al personaje" })
-        );
-      }
-    }
-  })
-  .listen(3001, "localhost");
 
-//* Tendria que reformular todo el codigo, funciona pero no esta del todo bien
+server.listen(PORT, () => {
+  console.log("Server is listening in port " + PORT);
+});
+
