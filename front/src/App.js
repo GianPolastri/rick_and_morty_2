@@ -21,8 +21,9 @@ function App() {
   const onSearch = (id) => {
     const URL_BASE = "http://localhost:3001/rickandmorty";
     // const KEY = "9d97e1f1346d.2db9fae612b2d7eede69";
+    // const URL = "https://be-a-rym.up.railway.app/api"
 
-    fetch(`${URL_BASE}/character/${id}`)
+    fetch(`${URL_BASE}/onsearch/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {

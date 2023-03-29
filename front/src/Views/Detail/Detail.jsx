@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Detail = () => {
-  const URL_BASE = "https://be-a-rym.up.railway.app/api";
-  const KEY = "9d97e1f1346d.2db9fae612b2d7eede69";
+  const URL_BASE = "http://localhost:3001/rickandmorty";
+  // const URL_BASE = "https://be-a-rym.up.railway.app/api";
+  // const KEY = "9d97e1f1346d.2db9fae612b2d7eede69";
 
   const [character, setCharacter] = useState({});
 
   const { detailId } = useParams();
   useEffect(() => {
-    fetch(`${URL_BASE}/character/${detailId}?key=${KEY}`)
+    fetch(`${URL_BASE}/detail/${detailId}`)
       .then((response) => response.json())
       .then((char) => {
         if (char.name) {
