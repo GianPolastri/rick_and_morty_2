@@ -1,8 +1,9 @@
 import Card from "../Card/Card";
+import styles from './Cards.module.css';
 
 function Cards ({ characters, onClose }){
   return (
-    <div>
+    <div className={styles.DivCards}>
       {characters.map((pj) => (
         <Card
           id={pj.id}

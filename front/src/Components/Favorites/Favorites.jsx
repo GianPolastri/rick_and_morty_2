@@ -24,13 +24,13 @@ import { useSelector } from "react-redux";
 
 // }
 
-const Favorites = () => {
+const Favorites = ({myFavorites}) => {
 
-    const favorites = useSelector(state => state.myFavorites)
+    // const favorites = useSelector(state => state.myFavorites)
 
     return(
         <div>
-            {favorites.map(pj => {
+            {myFavorites.map(pj => {
                 return (
                     <Card
                     id={pj.id}

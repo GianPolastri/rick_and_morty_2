@@ -1,5 +1,6 @@
 import { useState } from "react";
 import validation from "./validation";
+import styles from "./Form.module.css";
 
 const Form = ({ login }) => {
   const [userData, setUserData] = useState({
@@ -36,7 +37,7 @@ const Form = ({ login }) => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className={styles.landingForm}>
       <label htmlFor="">Username:</label>
       <input
         type="text"

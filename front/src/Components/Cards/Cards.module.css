@@ -1,0 +1,10 @@
+.DivCards{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 80%;
+    margin-left: 10%;
+    background-color: rgba(145, 62, 223, 0.749);
+    box-shadow: 0px 0px 100px rgb(73, 42, 145);
+    border: 2px solid black;
+    
+}

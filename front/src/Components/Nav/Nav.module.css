@@ -1,0 +1,13 @@
+.BarNav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 80%;
+    height: 4em;
+    margin-top: 0;
+    margin-bottom: 2.3em;
+    border: 2px solid black;
+    border-radius: 10px;    
+    background-color: rgba(145, 62, 223, 0.749);
+    box-shadow: 0px 0px 100px rgb(73, 42, 145);
+}

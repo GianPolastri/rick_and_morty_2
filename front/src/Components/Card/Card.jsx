@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 import { removeFavorite } from "../../Redux/actions";
 import axios from "axios";
+import styles from './Card.module.css';
 
 function Card({
   id,
@@ -41,24 +42,28 @@ function Card({
   }, [myFavorites]);
 
   return (
-    <>
+    <div className={styles.DivCard}>
+      <span className={styles.ButtonSpan}>
       {isFav ? (
-        <button onClick={handleFavorite}>❤️</button>
+        <button className={styles.favButton} onClick={handleFavorite}>❤️</button>
       ) : (
-        <button onClick={handleFavorite}>🤍</button>
+        <button className={styles.favButton} onClick={handleFavorite}>🤍</button>
       )}
-      <button onClick={() => onClose(id)}>X</button>
-      <br />
+      <button className={styles.CardButton} onClick={() => onClose(id)}>X</button>
+      </span>
 
-      <img src={image} alt="" />
-      <Link to={`/detail/${id}`}>
-        <h3>{name}</h3>
-      </Link>
-      <h5>
-        <span>{species}</span>
-        <span>{gender}</span>
-      </h5>
-    </>
+      <div className={styles.DivPersonaje}>
+
+        <img src={image} alt="" className={styles.CardImg}/>
+        <Link to={`/detail/${id}`}>
+          <h3 className={styles.CardName}>{name}</h3>
+        </Link>
+      </div>
+      <div className={styles.spanAtributtes}>
+        <span className={styles.CardAtributtes} style={{marginRight: '2em'}}>{species}</span>
+        <span className={styles.CardAtributtes} style={{marginRight: '2em'}}>{gender}</span>
+      </div>
+    </div>
   );
 }
 

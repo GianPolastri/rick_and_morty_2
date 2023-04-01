@@ -49,7 +49,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App" style={{ padding: '25px' }}>
       
       {location.pathname !== '/' && <Nav onSearch={onSearch} location={location}/>}
       

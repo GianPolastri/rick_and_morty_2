@@ -1,10 +1,9 @@
-import React from 'react';
-
-
+import React from "react";
+import styles from "./SearchBar.module.css";
 
 // class SearchBar extends React.Component{
 //     constructor(props){
-//         super(props)    
+//         super(props)
 //         this.state = ''
 //     }
 
@@ -24,17 +23,21 @@ import React from 'react';
 // export default SearchBar;
 
 export default function SearchBar(props) {
+  const [id, setId] = React.useState("");
 
-    const [id, setId] = React.useState('')
-
- const handleChange = (event)=>{
+  const handleChange = (event) => {
     setId(event.target.value);
- }
+  };
 
- return (
+  return (
     <div>
-       <input type='search' onChange={handleChange}/>
-    <button onClick={()=>props.onSearch(id)}>Agregar</button> 
+      <input type="search" onChange={handleChange} />
+      <button
+        className={styles.SearchButton}
+        onClick={() => props.onSearch(id)}
+      >
+        Agregar
+      </button>
     </div>
- );
+  );
 }
